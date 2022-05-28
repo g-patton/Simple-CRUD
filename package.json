@@ -1,0 +1,22 @@
+{
+  "name": "simple-crud-z",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-patton/simple-CRUD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-patton/simple-CRUD/issues"
+  },
+  "homepage": "https://github.com/g-patton/simple-CRUD#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
