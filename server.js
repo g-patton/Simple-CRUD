@@ -13,7 +13,37 @@ console.log('Connected to Database')
 const db = client.db('star-wars-quotes')
 const quotesCollection = db.collection('quotes')
 
+quotesCollection.findOneAndUpdate(
+    { name: 'Yoda' },
+    {
+    $set: {
+    name: req.body.name,
+    quote: req.body.quote
+    }
+    },
+    {
+    upsert: true
+    }
+    )
+    .then(result => {/* ... */})
+    .catch(error => console.error(error))
+    
+
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+app.put('/quotes', (req, res) => {
+    quotesCollection.findOneAndUpdate(/* ... */)
+    .then(result => {
+    res.json('Success')
+    })
+    .catch(error => console.error(error))
+    })
+    
+    
+
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
     db.collection('quotes').find().toArray()
     .then(results => {
@@ -42,16 +72,6 @@ app.set('view engine', 'ejs')
 })
 .catch(error => console.error(error))
 
-// ///////////////////////////////
-
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://grahammpatton:1422Scales>@cluster0.5ejb1.mongodb.net/?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
-
-
+app.delete('/quotes', (req, res) => {
+    // Handle delete event here
+    })
