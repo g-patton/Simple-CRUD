@@ -28,15 +28,10 @@ update.addEventListener('click', _ => {
     })
     })
 
-const deleteButton = document.querySelector('#delete-button')
-deleteButton.addEventListener('click', _ => {
-fetch('/quotes', {
-method: 'delete',
-})
-})
+
 
 deleteButton.addEventListener('click', _ => {
-    fetch(/* ... */, {
+    fetch('/quotes', {
     method: 'delete',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -50,4 +45,3 @@ deleteButton.addEventListener('click', _ => {
     window.location.reload()
     })
     })
-    
